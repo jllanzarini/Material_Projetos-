@@ -13,13 +13,18 @@ statusDisplay.innerHTML = currentPlayerTurn();
 const winningConditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
 function handleCellPlayed(clickedCell, clickedCellIndex){
-    gameState[clickedCellIndex] = currentPlayer;
+    gameState[clickedCellIndex] = currentPlayer;   
     clickedCell.innerHTML = currentPlayer;
+    if (currentPlayer === "X"){
+        clickedCell.setAttribute("style", "color: blue;");
+     }else{ 
+         clickedCell.setAttribute("style", "color: red;");
+     }   
 }
 
 function handlePlayerChange(){
     currentPlayer = currentPlayer === "X" ? "O" : "X";
-    statusDisplay.innerHTML = currentPlayerTurn();
+    statusDisplay.innerHTML = currentPlayerTurn(); 
 }
 
 function handleResultValidation(){
@@ -50,7 +55,6 @@ function handleResultValidation(){
         return
     }
     handlePlayerChange();
-
 }
     function handleCellClick(clickedCellEvent) {
         const clickedCell = clickedCellEvent.target;
