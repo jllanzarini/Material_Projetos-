@@ -63,3 +63,4 @@ function handleResultValidation(){
         handleCellPlayed(clickedCell, clickedCellIndex);
         handleResultValidation();
     }
+    

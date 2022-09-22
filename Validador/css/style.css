@@ -1,0 +1,23 @@
+*{
+	margin:0 auto;
+	padding:0 auto;
+}
+form{
+	width:80%;
+	padding:10px 10px;
+	background-color: #f3f2f2;
+	margin-top:20px;
+	border-radius: 5px;
+}
+#erro{
+	width:90%;
+	height:40px;
+	background-color: #FF6347;
+	color:#fff;
+	padding:8px;
+	border-radius:10px;	
+}
+#olho{
+	position:absolute;
+	right:160px;
+}
