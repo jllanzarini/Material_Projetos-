@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    background-image: url('/pinball/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.ball{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url('/pinball/img/bola.png');
+    background-size: cover;
+    border-radius: 20px;
+    position: absolute;
+}
+.board{
+    display: block;
+    background-image: url('/pinball/img/jump\ academia\ png\ -\ Foto\ sem\ fundo\ png\ gratis\ para\ baixar\ \(1\).png');
+    background-size: cover;
+    width: 180px;
+    height: 120px;
+    position: absolute;
+    bottom: 0px;
+}
+.score{
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    font-family: monospace;
+    font-size: 3rem;
+    color: #fff;
+    font-weight: bold;
+}
