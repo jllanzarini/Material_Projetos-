@@ -40,7 +40,7 @@ function moveUp(){
 
 //cordenadas tubulações
 var pipe = [];
-pipe[0]={ x: cvs.Width, y: 0 };
+pipe[0]={ x: cvs.width, y: 0 };
 
 
 //Jogabilidade
@@ -53,7 +53,7 @@ function draw(){
             pipe[i].x--; //Pesquisem esse conceito
 
             if (pipe[i].x == 125){
-                pipe.push({x: cvs.Width, y: Math.floor(Math.random() * pipeS.height) - pipeS.height});
+                pipe.push({x: cvs.width, y: Math.floor(Math.random() * pipeS.height) - pipeS.height});
           
             }
     //Verificando a colisão

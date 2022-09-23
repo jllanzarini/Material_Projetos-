@@ -19,13 +19,10 @@ pipeSouth.src = "images/pipeSouth.png";
 
 var gap = 85;
 var constant;
-
 var bX = 10;
 var bY = 150;
-
- var gravity = 1.5;
-
- var score = 0;
+var gravity = 1.5;
+var score = 0;
 
  // audio
 
@@ -90,9 +87,7 @@ var bY = 150;
    }
 
    ctx.drawImage(fg, 0, cvs.height - fg.height);
-
    ctx.drawImage(bird, bX, bY);
-
    bY += gravity;
 
    ctx.fillStyle = "#000";
