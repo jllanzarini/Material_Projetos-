@@ -19,7 +19,7 @@ var gap = 120; // Quanto maior maior o espaço entre os tubos
 var constant;
 var bX = 10;
 var bY = 150;
-var gravidade = 1.5; // Quanto maior a velocidade de queda 
+var gravidade = 1.8; // Quanto maior a velocidade de queda 
 var score = 0;
 
 //carregamento audios
