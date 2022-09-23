@@ -15,11 +15,11 @@ pipeS.src = "images/pipeNorth.png";
 pipeI.src = "images/pipeSouth.png";
 
 // Variaveis Jogabilidade
-var gap = 85;
+var gap = 120; // Quanto maior maior o espaço entre os tubos
 var constant;
 var bX = 10;
 var bY = 150;
-var gravidade = 1.5;
+var gravidade = 1.5; // Quanto maior a velocidade de queda 
 var score = 0;
 
 //carregamento audios
@@ -34,7 +34,7 @@ document.addEventListener("keydown", moveUp);
 
 //Função chamadda pelo evento acima(moveUP)
 function moveUp(){
-    bY -= 25;
+    bY -= 30; //Quanto maior maior o salto
     fly.play();
 }
 
@@ -52,7 +52,7 @@ function draw(){
             ctx.drawImage(pipeI, pipe[i].x, pipe[i].y + constant);
             pipe[i].x--; //Pesquisem esse conceito
 
-            if (pipe[i].x == 125){
+            if (pipe[i].x == 10){// Tubos mais longe
                 pipe.push({x: cvs.width, y: Math.floor(Math.random() * pipeS.height) - pipeS.height});
           
             }
