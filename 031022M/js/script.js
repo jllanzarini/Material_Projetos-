@@ -9,7 +9,7 @@ $(function(){
         
         //Adiciona novo registro
         function adicionar(){
-            var cli = GetCliente("Codigo", $("txtCodigo").val());
+            var cli = GetCliente("Codigo", $("#txtCodigo").val());
             if(cli != null){ //Verifica se o codigo já está cadastrado
                 alert("Código já cadastrado!");
                 return;
