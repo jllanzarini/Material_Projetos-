@@ -46,3 +46,17 @@ function displayTimeLeft(seconds){
     document.title = display;
     timerDisplay.textContent = display;
 }
+
+//Exibir a hora  exata que o timer findará
+function displayEndTime(timestamp){
+    const end = new Date(timestamp);
+    const hour = end.getHours();
+    const minutes = end.getMinutes();
+    endTime.textContent = `Seu timer findará ${hour}:${minutes < 10 ? '0' : ''}${minutes}`;
+}
+//Função para iniciar o Timer ao clicar no botão
+function startTimer(){
+    //Pegar o valor do data-time do botão que foi clicado e transformar em inteiro
+    const seconds = parseInt(this.dataset.time);
+    timer(seconds);
+}
