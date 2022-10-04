@@ -7,6 +7,13 @@ const endTime = document.querySelector('.display__end-time');
 //seleciona os botões que determinam o tempo
 const buttons = document.querySelectorAll('[data-time]');
 
+//carregar audios
+var ini_a = new Audio();
+var fim_a = new Audio();
+//source dos audios 
+ini_a.src="som/Jump.mp3"
+fim_a.src="som/Bike.mp3"
+
 //Função de Contagemde tempo
 function timer(seconds){
     //quando iniciar o timer limpar qualquer outro timer que exista
@@ -56,14 +63,17 @@ function displayEndTime(timestamp){
 }
 //Função para iniciar o Timer ao clicar no botão
 function startTimer(){
+    ini_a.play();
     //Pegar o valor do data-time do botão que foi clicado e transformar em inteiro
     const seconds = parseInt(this.dataset.time);
     timer(seconds);
+
 }
 
 //identificar o evento do click no botao e atribuir a função 
 buttons.forEach(button => button.addEventListener('click', startTimer));
 document.customForm.addEventListener('submit', function(e) {
+    ini_a.play();
     e.preventDefault();
     //pegar o que foi digitado
     const mins = this.minutes.value;
