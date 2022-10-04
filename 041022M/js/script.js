@@ -60,3 +60,15 @@ function startTimer(){
     const seconds = parseInt(this.dataset.time);
     timer(seconds);
 }
+
+//identificar o evento do click no botao e atribuir a função 
+buttons.forEach(button => button.addEventListener('click', startTimer));
+document.customForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    //pegar o que foi digitado
+    const mins = this.minutes.value;
+    //atribuir como parametro da funcao, transformando em segundos
+    timer(mins * 60);
+    //limpar cada vez que for digitado outro
+    this.reset();
+});
