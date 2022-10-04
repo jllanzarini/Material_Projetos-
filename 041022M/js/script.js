@@ -35,6 +35,7 @@ function timer(seconds){
         //por isso é necessario parar a função quando chegar em um valor menos que zero
         const secondsLeft = Math.round((then - Date.now()) / 1000);
         if(secondsLeft < 0) {
+            fim_a.play();
             clearInterval(countdown);  
             return;
         }
