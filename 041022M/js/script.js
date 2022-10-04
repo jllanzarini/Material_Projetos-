@@ -49,7 +49,7 @@ function timer(seconds){
 function displayTimeLeft(seconds){
     const minutes = Math.floor(seconds/60);
     const remainderSeconds = seconds % 60;
-    const display = `${minutes}:${remainderSeconds < 10 ? '0':''} ${remainderSeconds}`;
+    const display = `${minutes}:${remainderSeconds < 10 ?'0':''}${remainderSeconds}`;
     //Adicionar o timer ao Title da pagina
     document.title = display;
     timerDisplay.textContent = display;
