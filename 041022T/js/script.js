@@ -46,3 +46,42 @@ function timer(seconds){
         displayTimeLeft(secondsLeft);
     }, 1000); 
 }
+
+//ao usar apenas o interval, ele começa a rodar a partir do tempo que foi colocado, no caso, 1 segundo, 
+//por isso caso tenha 10 segundos ele vai começar a contar a partir do 9, por isso precisamos criar uma função para exibir o tempo que falta
+function displayTimeLeft(seconds){
+    const minutes = Math.floor(seconds/60);
+    const remainderSeconds = seconds % 60;
+    const display = `${minutes}:${remainderSeconds < 10 ?'0':''}${remainderSeconds}`;
+    //Adicionar o timer ao Title da pagina
+    document.title = display;
+    timerDisplay.textContent = display;
+}
+//Exibir a hora  exata que o timer findará
+function displayEndTime(timestamp){
+    const end = new Date(timestamp);
+    const hour = end.getHours();
+    const minutes = end.getMinutes();
+    endTime.textContent = `Seu timer findará ${hour}:${minutes < 10 ? '0':''}${minutes}`;
+}
+//Função para iniciar o Timer ao clicar no botão
+function startTimer(){
+    ini_a.play();
+    //Pegar o valor do data-time do botão que foi clicado e transformar em inteiro
+    const seconds = parseInt(this.dataset.time);
+    timer(seconds);
+
+}
+
+//identificar o evento do click no botao e atribuir a função 
+buttons.forEach(button => button.addEventListener('click', startTimer));
+document.customForm.addEventListener('submit', function(e) {
+    ini_a.play();
+    e.preventDefault();
+    //pegar o que foi digitado
+    const mins = this.minutes.value;
+    //atribuir como parametro da funcao, transformando em segundos
+    timer(mins * 60);
+    //limpar cada vez que for digitado outro
+    this.reset();
+});
