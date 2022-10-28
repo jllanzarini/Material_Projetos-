@@ -46,11 +46,41 @@ public class cadastroPessoaController {
 								+ " não corresponde a nenhum Cadastro"));
 				return ResponseEntity.ok().body(cadPessoa);
 			}
-	//Salvar Cadastro
+		//Salvar Cadastro
 		@PostMapping("cadastroPessoa")
 		@ResponseStatus(HttpStatus.CREATED)
 		public cadastroPessoa cadastropessoaRepository(@RequestBody cadastroPessoa cadastroPessoa) {
 			return this.cadastropessoaRepository.save(cadastroPessoa);
 		}
+		
+			//Atualizar cadastro Pessoa
+			@PutMapping("/cadastroPessoa/{id}")
+			@ResponseStatus(HttpStatus.OK)
+			public ResponseEntity<cadastroPessoa> updateCadastroPessoa(@PathVariable(value="id")int cadastroPessoaId, 
+				@Validated @RequestBody cadastroPessoa cadastroPessoaValores) throws ResourceNotFoundException{
+					cadastroPessoa cadastroPessoa = cadastropessoaRepository.findById(cadastroPessoaId)
+						.orElseThrow(() -> new ResourceNotFoundException("O ID "+cadastroPessoaId
+								+ " não corresponde a nenhum Cadastro"));
+				cadastroPessoa.setNome(cadastroPessoaValores.getNome());
+				cadastroPessoa.setEmail(cadastroPessoaValores.getEmail());
+				cadastroPessoa.setTel(cadastroPessoaValores.getTel());
+				cadastroPessoa.setSenha(cadastroPessoaValores.getSenha());
+				
+				return ResponseEntity.ok(this.cadastropessoaRepository.save(cadastroPessoa));
+			}
+			//Deleletar Pessoa
+			@DeleteMapping("/cadastroPessoa/{id}")
+			@ResponseStatus(HttpStatus.OK)
+			public Map<String, Boolean>deletaCadastroPessoa(@PathVariable(value="id")int cadastroPessoaId) 
+					throws ResourceNotFoundException{
+				cadastroPessoa cadastroPessoa = cadastropessoaRepository.findById(cadastroPessoaId)
+						.orElseThrow(() -> new ResourceNotFoundException("O ID "+cadastroPessoaId
+								+ " não corresponde a nenhum Cadastro"));
+				this.cadastropessoaRepository.delete(cadastroPessoa);
+				Map<String, Boolean> resposta = new HashMap<>();
+				resposta.put("Cadastro deletado com sucesso", Boolean.TRUE);
+				return resposta;
+			}
+				
 }	
 	
