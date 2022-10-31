@@ -37,17 +37,18 @@ public class cadastroPessoa {
     private LocalDate dataNascimento;
     @NotNull
     private String senha;
+    @NotNull
+    private String telefone;
  
-    public cadastroPessoa() {
-  
-    }
+    public cadastroPessoa() {}
  
-    public cadastroPessoa(String cpf, String nome, String email, LocalDate dataNascimento, String senha) {
+    public cadastroPessoa(String cpf, String nome, String email, LocalDate dataNascimento, String senha, String telefone ) {
          this.cpf = cpf;
          this.nome = nome;
          this.email = email;
          this.dataNascimento = dataNascimento;
          this.senha = senha;
+         this.telefone = telefone;
     }
  
     @Id
@@ -100,10 +101,19 @@ public class cadastroPessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
 	@Override
     public String toString() {
-        return "Cadastro [id=" + id + ", Nome=" + nome + ", CPF=" + cpf + ", e-mail=" + email + ", data de nascimento=" + dataNascimento +", Senha="+ senha + "]";
+        return "Cadastro [id=" + id + ", Nome=" + nome + ", CPF=" + cpf + ", e-mail=" + email + ", data de nascimento=" + dataNascimento +", Senha="+ senha +", Telefone="+ telefone + "]";
     }
 
 }
