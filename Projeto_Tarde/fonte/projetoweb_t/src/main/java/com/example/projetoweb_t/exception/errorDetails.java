@@ -1,17 +1,14 @@
 package com.example.projetoweb_t.exception;
-import java.sql.Date;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import java.util.Date;
 
-@ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class ErrorDetails{
+public class errorDetails {
 	private Date data;
 	private String mensagem;
 	private String detalhes;
 	
 	
-	public ErrorDetails(Date data, String mensagem, String detalhes) {
+	public errorDetails(Date data, String mensagem, String detalhes) {
 		super();
 		this.data = data;
 		this.mensagem = mensagem;
