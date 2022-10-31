@@ -16,7 +16,7 @@ public class globalExceptionHandler {
 	    }
 
 	    @ExceptionHandler(Exception.class)
-	    public ResponseEntity<?> globaleExcpetionHandler(Exception ex, WebRequest request) {
+	    public ResponseEntity<?> globleExcpetionHandler(Exception ex, WebRequest request) {
 	        errorDetails errorDetails = new errorDetails(new Date(), ex.getMessage(), request.getDescription(false));
 	        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
