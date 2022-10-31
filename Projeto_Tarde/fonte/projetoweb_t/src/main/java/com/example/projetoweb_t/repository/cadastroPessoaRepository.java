@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.projetoweb_t.model.cadastroPessoa;
 
 @Repository //indica que a classe possui o papel de Data Access Object (DAO). Ela realiza operações de CRUD para a entidade que especificamos.
-public interface cadastroPessoaRepository  extends JpaRepository<cadastroPessoa, Integer>{
+public interface cadastroPessoaRepository  extends JpaRepository<cadastroPessoa, Long>{
 
 }
