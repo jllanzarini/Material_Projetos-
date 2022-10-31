@@ -17,21 +17,17 @@ import javax.validation.constraints.Size;
 public class cadastroPessoa {
 	private int id;
 	@NotNull
-	
-	@Size(min=2, max=100)
 	private String nome;
-	
 	@NotNull
+	@Size(min =2, max= 100)
 	@Email
 	@Pattern(regexp=".+@.+\\..+", message = "Informe um e-mail válido")
 	private String email;
-	
 	@NotNull
 	private String tel;
-	
 	@NotNull
 	private String senha;
-	
+		
 	public cadastroPessoa() {
 		
 	}
@@ -48,27 +44,47 @@ public class cadastroPessoa {
 		public int getId() {
 		return id;
 	}
-	
 	public void setId(int id) {
 		this.id = id;
 	}
 	
-	@Column(name="email", nullable=false, unique=true)
-	public String getEmail() {
-		return email;
+	@Column(name = "NOME", nullable = false)
+	public String getNome() {
+			return nome;
 	}
-	@Column(name="tel", nullable=false, unique=true)
-	public String getTel() {
-		return tel;
-	}
-	@Column(name="senha", nullable=false, unique=true)
-	public String getSenha() {
-		return senha;
-	}
-	@Override
-	public String toString() {
-		return "Cadastro [id=" + id + ", Nome=" + nome + ",E-mail=" + email+", "
-				+ "Telefone="+tel+", Senha="+senha+"]";
+	public void setNome(String nome) {
+		this.nome = nome;
+
 	}
 	
+	@Column(name = "EMAIL", nullable = false, unique = true)
+		public String getEmail() {
+			return email;
+		}
+		public void setEmail(String email) {
+			this.email = email;
+
+		}
+	@Column(name = "TEL", nullable = false)
+	
+		public String getTel() {
+			return tel;
+		}
+		public void setTel(String tel) {
+			this.tel = tel;
+
+	}
+	@Column(name = "SENHA", nullable = false)
+		public String getSenha() {
+			return senha;
+		}
+		public void setSenha(String senha) {
+			this.senha = senha;
+	
+		}
+	@Override
+	public String toString() {
+		return "Pessoa [id= "+id+", Nome= "+ nome + ", E-mail= "+ email + ", Telefone= "+ tel +
+				", Senha= "+ senha + "]";
+	}
 }
