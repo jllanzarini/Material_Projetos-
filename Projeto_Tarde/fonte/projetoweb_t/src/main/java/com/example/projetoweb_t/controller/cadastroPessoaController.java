@@ -69,6 +69,9 @@ public class cadastroPessoaController {
     	cadastroPessoa.setEmail(cadastroCaracteristicas.getEmail());
     	cadastroPessoa.setNome(cadastroCaracteristicas.getNome());
     	cadastroPessoa.setDataNascimento(cadastroCaracteristicas.getDataNascimento());
+    	cadastroPessoa.setSenha(cadastroCaracteristicas.getSenha());
+    	cadastroPessoa.setTelefone(cadastroCaracteristicas.getTelefone());
+    	
         
         return ResponseEntity.ok(this.cadastroRepository.save(cadastroPessoa));
         
