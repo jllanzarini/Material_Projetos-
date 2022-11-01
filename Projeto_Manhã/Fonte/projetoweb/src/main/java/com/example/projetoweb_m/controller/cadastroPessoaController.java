@@ -47,7 +47,7 @@ public class cadastroPessoaController {
 				return ResponseEntity.ok().body(cadPessoa);
 			}
 		//Salvar Cadastro
-		@PostMapping("cadastroPessoa")
+		@PostMapping("/cadastroPessoa")
 		@ResponseStatus(HttpStatus.CREATED)
 		public cadastroPessoa cadastropessoaRepository(@RequestBody cadastroPessoa cadastroPessoa) {
 			return this.cadastropessoaRepository.save(cadastroPessoa);
