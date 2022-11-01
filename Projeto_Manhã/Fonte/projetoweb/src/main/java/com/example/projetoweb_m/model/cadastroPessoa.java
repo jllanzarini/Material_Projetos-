@@ -13,7 +13,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name ="pessoas", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
+@Table(name ="clientes", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 public class cadastroPessoa {
 	private int id;
 	@NotNull
