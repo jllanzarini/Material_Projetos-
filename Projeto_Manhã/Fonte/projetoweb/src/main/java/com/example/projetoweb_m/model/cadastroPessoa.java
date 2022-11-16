@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 @Table(name ="clientes", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 public class cadastroPessoa {
-	private long id;
+	private int id;
     @NotNull
     @Pattern(regexp="\\d{11}", message = "Apenas informe 11 digitos.")
     private String cpf;
@@ -53,10 +53,10 @@ public class cadastroPessoa {
  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        public long getId() {
+        public int getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
     

@@ -20,37 +20,34 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projetoweb_m.exception.resourceNotFoundException;
 import com.example.projetoweb_m.model.cadastroVendas;
-
-
-
+import com.example.projetoweb_m.repository.cadastroVendasRepository;
 
 @RestController
 @RequestMapping("/api/v1")
-public class cadastroVendasController {
-	
+public class cadastroVendaController {
 	@Autowired
-	private cadastroVendasController cadastroVendasRepository;
+	private cadastroVendasRepository cadastroVendasrepository;
 	
 	//Cadastrar venda
 	@PostMapping("/CadastroVendas")
 	@ResponseStatus(HttpStatus.CREATED)
-	public cadastroVendas cadastroVendasRepository(@RequestBody cadastroVendas cadastroVendas) {
-		return this.cadastroVendasRepository.save(cadastroVendas);
+	public cadastroVendas cadastroVendasRepository(@RequestBody cadastroVendas cadastrovendas) {
+		return this.cadastroVendasrepository.save(cadastrovendas);
 	}
 	
 	//Pegar todas as vendas
 	@GetMapping("/CadastroVendas")
 	@ResponseStatus(HttpStatus.OK)
 	public List<cadastroVendas> getAllCadastroVendas(){
-		return this.cadastroVendasRepository.findAll();
+		return this.cadastroVendasrepository.findAll();
 	}
 	
 	//Consultar cadastro pelo ID
 	@GetMapping("/CadastroVendas/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<cadastroVendas>getCadastroVendasById(@PathVariable(value="id")int cadastroVendasId)
+	public ResponseEntity<cadastroVendas>getCadastroVendasById(@PathVariable(value="id")Integer cadastroVendasId)
 			throws resourceNotFoundException{
-		cadastroVendas cadastroVendas = cadastroVendasRepository.findById(cadastroVendasId)
+		cadastroVendas cadastroVendas = cadastroVendasrepository.findById(cadastroVendasId)
 						.orElseThrow(() -> new resourceNotFoundException("O ID "+cadastroVendasId
 								+ " não corresponde a nenhum Cadastro"));
 				return ResponseEntity.ok().body(cadastroVendas);
@@ -60,29 +57,30 @@ public class cadastroVendasController {
 	//Atualizar cadastro Vendas
 	@PutMapping("/CadastroVendas/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<cadastroVendas> updateCadastroVendas(@PathVariable(value="id")int cadastroVendasId, 
+	public ResponseEntity<cadastroVendas> updateCadastroVendas(@PathVariable(value="id")Integer cadastroVendasId, 
 		@Validated @RequestBody cadastroVendas cadastroVendasValores) throws resourceNotFoundException{
-		cadastroVendas cadastroVendas = cadastroVendasRepository.findById(cadastroVendasId)
+		cadastroVendas cadastroVendas = cadastroVendasrepository.findById(cadastroVendasId)
 				.orElseThrow(() -> new resourceNotFoundException("O ID "+ cadastroVendasId
 						+ " não corresponde a nenhum Cadastro"));
 		cadastroVendas.setIdPessoa(cadastroVendasValores.getIdPessoa());
 		cadastroVendas.setNroItens(cadastroVendasValores.getNroItens());
 		cadastroVendas.setValorTotalVenda(cadastroVendasValores.getValorTotalVenda());
 		
-		return ResponseEntity.ok(this.cadastroVendasRepository.save(cadastroVendas));
+		return ResponseEntity.ok(this.cadastroVendasrepository.save(cadastroVendas));
 	}
 	
 	//Deletar Venda
 	@DeleteMapping("/CadastroVendas/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public Map<String, Boolean>deletaCadastroVendas(@PathVariable(value="id")int cadastroVendasId) 
+	public Map<String, Boolean>deletaCadastroVendas(@PathVariable(value="id")Integer cadastroVendasId) 
 			throws resourceNotFoundException{
-		cadastroVendas cadastroVendas = cadastroVendasRepository.findById(cadastroVendasId)
+		cadastroVendas cadastroVendas = cadastroVendasrepository.findById(cadastroVendasId)
 				.orElseThrow(() -> new resourceNotFoundException("O ID "+cadastroVendasId
 						+ " não corresponde a nenhum Cadastro"));
-		this.cadastroVendasRepository.delete(cadastroVendas);
+		this.cadastroVendasrepository.delete(cadastroVendas);
 		Map<String, Boolean> resposta = new HashMap<>();
 		resposta.put("Cadastro deletado com sucesso", Boolean.TRUE);
 		return resposta;
 	}
+
 }

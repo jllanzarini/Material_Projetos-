@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projetoweb_m.exception.resourceNotFoundException;
 import com.example.projetoweb_m.model.cadastroIntensVenda;
-import com.example.projetoweb_m.model.cadastroProduto;
 import com.example.projetoweb_m.repository.cadastroItensVendaRepository;
 
 @RestController

@@ -41,7 +41,7 @@ public class cadastroPessoaController {
 	//pegar a conta pelo id
 	@GetMapping("/cadastrosPessoa/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<cadastroPessoa> getCadastroById(@PathVariable(value = "id") Long cadastroPessoaid)
+	public ResponseEntity<cadastroPessoa> getCadastroById(@PathVariable(value = "id")Integer cadastroPessoaid)
 	    throws resourceNotFoundException {
 		
 		cadastroPessoa cadastroPessoa = cadastropessoarepository.findById(cadastroPessoaid)
@@ -62,7 +62,7 @@ public class cadastroPessoaController {
 	//atualizar conta
 	@PutMapping("/cadastrosPessoa/{id}")
 	@ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<cadastroPessoa> updateCadastro(@PathVariable(value = "id") Long cadastroPessoaId,
+    public ResponseEntity<cadastroPessoa> updateCadastro(@PathVariable(value = "id") Integer cadastroPessoaId,
     	@Validated @RequestBody cadastroPessoa cadastroCaracteristicas) throws resourceNotFoundException {
     	cadastroPessoa cadastroPessoa = cadastropessoarepository.findById(cadastroPessoaId)
         .orElseThrow(() -> new resourceNotFoundException("Conta não encontrada para o ID : " + cadastroPessoaId));
@@ -82,7 +82,7 @@ public class cadastroPessoaController {
 	//deletar conta
 	@DeleteMapping("/cadastrosPessoa/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public Map<String, Boolean> deleteCadastro(@PathVariable(value = "id") Long cadastroPessoaId) 
+	public Map<String, Boolean> deleteCadastro(@PathVariable(value = "id") Integer cadastroPessoaId) 
 			throws resourceNotFoundException {
 		cadastroPessoa cadastroPessoa = cadastropessoarepository.findById(cadastroPessoaId)
 	   .orElseThrow(() -> new resourceNotFoundException("Conta não encontrada para o ID :: " + cadastroPessoaId));
