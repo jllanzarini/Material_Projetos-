@@ -27,60 +27,71 @@ import com.example.projetoweb_m.model.cadastroPessoa;
 public class cadastroPessoaController {
 	
 	@Autowired
-	private cadastroPessoaRepository cadastropessoaRepository;
+	private cadastroPessoaRepository cadastroRepository;
 	
-	//Pegar todos os cadastros
-	@GetMapping("/cadastroPessoa")
+	//pegar todas as contas
+	@GetMapping("/cadastrosPessoa")
 	@ResponseStatus(HttpStatus.OK)
-	public List<cadastroPessoa> getAllCadastroPessoa(){
-		return this.cadastropessoaRepository.findAll();
+	public List<cadastroPessoa> getAllCadastros(){
+		
+		return this.cadastroRepository.findAll();
+		
 	}
 	
-	//Selecionar cadastro pelo ID
-	@GetMapping("/cadastroPessoa/{id}")
+	//pegar a conta pelo id
+	@GetMapping("/cadastrosPessoa/{id}")
 	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<cadastroPessoa>getcadastroPessoaById(@PathVariable(value="id")int cadastroPessoaId)
-			throws resourceNotFoundException{
-				cadastroPessoa cadPessoa = cadastropessoaRepository.findById(cadastroPessoaId)
-						.orElseThrow(() -> new resourceNotFoundException("O ID "+cadastroPessoaId
-								+ " não corresponde a nenhum Cadastro"));
-				return ResponseEntity.ok().body(cadPessoa);
-			}
-		//Salvar Cadastro
-		@PostMapping("/cadastroPessoa")
-		@ResponseStatus(HttpStatus.CREATED)
-		public cadastroPessoa cadastropessoaRepository(@RequestBody cadastroPessoa cadastroPessoa) {
-			return this.cadastropessoaRepository.save(cadastroPessoa);
-		}
+	public ResponseEntity<cadastroPessoa> getCadastroById(@PathVariable(value = "id") Long cadastroPessoaid)
+	    throws resourceNotFoundException {
 		
-			//Atualizar cadastro Pessoa
-			@PutMapping("/cadastroPessoa/{id}")
-			@ResponseStatus(HttpStatus.OK)
-			public ResponseEntity<cadastroPessoa> updateCadastroPessoa(@PathVariable(value="id")int cadastroPessoaId, 
-				@Validated @RequestBody cadastroPessoa cadastroPessoaValores) throws resourceNotFoundException{
-					cadastroPessoa cadastroPessoa = cadastropessoaRepository.findById(cadastroPessoaId)
-						.orElseThrow(() -> new resourceNotFoundException("O ID "+cadastroPessoaId
-								+ " não corresponde a nenhum Cadastro"));
-				cadastroPessoa.setNome(cadastroPessoaValores.getNome());
-				cadastroPessoa.setEmail(cadastroPessoaValores.getEmail());
-				cadastroPessoa.setTel(cadastroPessoaValores.getTel());
-				cadastroPessoa.setSenha(cadastroPessoaValores.getSenha());
-				
-				return ResponseEntity.ok(this.cadastropessoaRepository.save(cadastroPessoa));
-			}
-			//Deleletar Pessoa
-			@DeleteMapping("/cadastroPessoa/{id}")
-			@ResponseStatus(HttpStatus.OK)
-			public Map<String, Boolean>deletaCadastroPessoa(@PathVariable(value="id")int cadastroPessoaId) 
-					throws resourceNotFoundException{
-				cadastroPessoa cadastroPessoa = cadastropessoaRepository.findById(cadastroPessoaId)
-						.orElseThrow(() -> new resourceNotFoundException("O ID "+cadastroPessoaId
-								+ " não corresponde a nenhum Cadastro"));
-				this.cadastropessoaRepository.delete(cadastroPessoa);
-				Map<String, Boolean> resposta = new HashMap<>();
-				resposta.put("Cadastro deletado com sucesso", Boolean.TRUE);
-				return resposta;
-			}
+		cadastroPessoa cadastroPessoa = cadastroRepository.findById(cadastroPessoaid)
+	      .orElseThrow(() -> new resourceNotFoundException("Conta não encontrada para o ID :: " + cadastroPessoaid));
+	    return ResponseEntity.ok().body(cadastroPessoa);
+	    
+	}
+	
+	//salvar conta
+	@PostMapping("/cadastrosPessoa")
+	@ResponseStatus(HttpStatus.CREATED)
+	public cadastroPessoa createCadastro(@RequestBody cadastroPessoa cadastro) {
+		
+		return this.cadastroRepository.save(cadastro);
+		
+	}
+	
+	//atualizar conta
+	@PutMapping("/cadastrosPessoa/{id}")
+	@ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<cadastroPessoa> updateCadastro(@PathVariable(value = "id") Long cadastroPessoaId,
+    	@Validated @RequestBody cadastroPessoa cadastroCaracteristicas) throws resourceNotFoundException {
+    	cadastroPessoa cadastroPessoa = cadastroRepository.findById(cadastroPessoaId)
+        .orElseThrow(() -> new resourceNotFoundException("Conta não encontrada para o ID : " + cadastroPessoaId));
+        
+    	cadastroPessoa.setCpf(cadastroCaracteristicas.getCpf());
+    	cadastroPessoa.setEmail(cadastroCaracteristicas.getEmail());
+    	cadastroPessoa.setNome(cadastroCaracteristicas.getNome());
+    	cadastroPessoa.setDataNascimento(cadastroCaracteristicas.getDataNascimento());
+    	cadastroPessoa.setSenha(cadastroCaracteristicas.getSenha());
+    	cadastroPessoa.setTelefone(cadastroCaracteristicas.getTelefone());
+    	
+        
+        return ResponseEntity.ok(this.cadastroRepository.save(cadastroPessoa));
+        
+    }
+	
+	//deletar conta
+	@DeleteMapping("/cadastrosPessoa/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public Map<String, Boolean> deleteCadastro(@PathVariable(value = "id") Long cadastroPessoaId) 
+			throws resourceNotFoundException {
+		cadastroPessoa cadastroPessoa = cadastroRepository.findById(cadastroPessoaId)
+	   .orElseThrow(() -> new resourceNotFoundException("Conta não encontrada para o ID :: " + cadastroPessoaId));
+	
+	    this.cadastroRepository.delete(cadastroPessoa);
+	    Map<String, Boolean> resposta = new HashMap<>();
+	    resposta.put("cadastro deletado", Boolean.TRUE);
+	    return resposta;
+	}
 				
 }	
 	
