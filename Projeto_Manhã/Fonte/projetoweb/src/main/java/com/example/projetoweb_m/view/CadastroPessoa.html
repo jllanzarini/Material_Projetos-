@@ -1,44 +1,68 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Cadastro Pessoa</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Cadastro de Pessoas</title>
+<script src="https://kit.fontawesome.com/a68915eedd.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<a href="CadastroPessoa.html"><button >Cadastro Pessoas</button></a>
-<a href="ListaPessoa.html"><button >Listar Pessoas</button></a>
-<a href="CadastroProduto.html"><button >Cadastro Produto</button></a>
-<a href="ListaProduto.html"><button >Listar Produtos</button></a>
+	<a href="CadastroPessoa.html"><button><i class="fa-solid fa-user-plus fa-2x"></i> Cadastro de Pessoas</button></a>
+	<a href="ListaPessoa.html"><button><i class="fa-regular fa-address-book fa-2x"></i> Lista de Pessoas</button></a>
+	<a href="CadastroProduto.html"><button><i class="fa-solid fa-box-archive fa-2x"></i> Cadastro de Produtos</button></a>
+	<a href="ListaProduto.html" ><button><i class="fa-solid fa-boxes-stacked fa-2x"></i> Lista de Produtos</button></a>
+	<a href="CadastroProduto.html"><button><i class="fa-solid fa-basket-shopping fa-2x"></i> Cadastro de Vendas</button></a>
+	<a href="ListaProduto.html" ><button><i class="fa-solid fa-store fa-2x"></i> Lista de Vendas</button></a>
+	
 	<fieldset>
 		<legend>Cadastro de Pessoas</legend>
-			<form action="">
-				<div>
-					<label>Id:</label>
-					<input type="text" readonly="readonly" >
-					<label>Nome:</label>
-					<input type="text" >
-				</div>
-				<br>
-				<div>
-					<label>E-mail:</label>
-					<input type="text">
-					<label>Telefone:</label>
-					<input type="text" >
-				</div>
-				<br>
-				<div>
-					<label>Senha:</label>
-					<input type="password">
-					<label>Confirmar Senha:</label>
-					<input type="password" >
-				</div>
-				<br>
-				<div>
-				<button type="submit">Cadastrar</button>
-				<button type="reset">Limpar</button>
-				</div>
-			</form>
-	
+		<form th:action="@{/cadastrosPessoa}" th:object="${cadastroPessoa}" method="post">
+		<div>
+			<label for="nome">Nome:</label>
+			<br>
+			<input type="text" th:field="*{nome}" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="cpf">CPF:</label>
+			<br>
+			<input type="text" th:field="*{cpf}" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="email">E-mail</label>
+			<br>
+			<input type="text" th:field="*{email}" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="telefone">Telefone:</label>
+			<br>
+			<input type="text" th:field="*{telefone}" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="dataNascimento">Data Nascimento:</label>
+			<br>
+			<input type="date" th:field="*{dataNascimento}" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="senha">Senha:</label>
+			<br>
+			<input type="password" th:field="*{senha}" required="required">
+			<br>
+		</div>
+		<br>
+		<div>
+			<button type="submit">Cadastrar</button>
+			<button type="reset">Limpar</button>
+		</div>
+		
+		
+		</form>
 	</fieldset>
 </body>
 </html>
