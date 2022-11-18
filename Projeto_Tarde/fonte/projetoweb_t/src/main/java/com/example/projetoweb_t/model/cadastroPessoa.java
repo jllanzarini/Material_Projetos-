@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "clientes", uniqueConstraints = {@UniqueConstraint(columnNames = {"CPF","email"})})
+@Table(name = "Pessoas", uniqueConstraints = {@UniqueConstraint(columnNames = {"CPF","email"})})
 public class cadastroPessoa {
 	private long id;
     @NotNull
