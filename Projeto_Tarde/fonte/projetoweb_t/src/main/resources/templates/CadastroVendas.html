@@ -2,7 +2,7 @@
 <html html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Cadastro de Produtos</title>
+<title>Cadastro de Vendas</title>
 <script src="https://kit.fontawesome.com/a68915eedd.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="../static/style.css"> 
 </head>
@@ -16,55 +16,53 @@
 	<a href="ListaVendas.html" ><button class="btn-menu"><i class="fa-solid fa-store fa-2x"></i> Lista de Vendas</button></a>
 	
 	<fieldset>
-		<legend>Cadastro de Produtos</legend>
-		<form th:action="@{/api/v1/cadastroProdutos}" th:object="${cadastroPessoa}" method="post">
+		<legend>Vendas</legend>
+		<form th:action="@{/api/v1/cadastroVendas}" th:object="${cadastroVendas}" method="post">
 		<div>
-			<label for="desricao">Descrição:</label>
+			<label for="idPessoa">Selecione o Cliente:</label>
 			<br>
-			<input type="text" th:field="*{descricao}" required="required">
-			<br>
-		</div>	
-			<div>
-			<label for="qtd">Quantidade:</label>
-			<br>
-			<input type="text" th:field="*{qtd}" required="required">
-			<br>
-		</div>	
-			<div>
-			<label for="vlrCompra">Valor de Compra:</label>
-			<br>
-			<input type="text" th:field="*{vlrCompra}" required="required">
-			<br>
-		</div>	
-			<div>
-			<label for="vlrVenda">Valor de Venda::</label>
-			<br>
-			<input type="text" th:field="*{vlrVenda}" required="required">
-			<br>
-		</div>	
-			<div>
-			<label for="dtValidade">Data Validade:</label>
-			<br>
-			<input type="date" th:field="*{dtValidade}" required="required">
-			<br>
-		</div>	
-			<div>
-			<label for="fabricante">Fabricante/Fornecedor:</label>
-			<br>
-			<input type="text" th:field="*{fabricante}" required="required">
+			<input type="text" th:field="*{idPessoa}" required="required">
 			<br>
 		</div>
-		<br>
+		<div>
+			<label for="idProduto">Selecione o Produto:</label>
+			<br>
+			<input type="text" th:field="*{idProduto}" required="required">
+			<button type="button">Adicionar</button>
+			<br>
+	
+		<br><br>
+			<table cellspacing="10" border="1">
+				<tr>
+					    <th>Código</th>
+					    <th>Descrição</th>
+					    <th>Quantidade</th>
+					    <th>Valor Unitário</th>
+					    <th>Valor Total</th>
+					  </tr>
+					  <tr>
+					    <td>Row 1: Col 1</td>
+					    <td>Row 1: Col 2</td>
+						<td>Row 1: Col 3</td>
+					    <td>Row 1: Col 4</td>
+					    <td>Row 1: Col 5</td>
+					  </tr>
+			</table>
+		</div>	
+		<br><br>
+		<div>
+			<label for="nroItens">Numero Total de Itens:</label>
+			<input type="text" th:field="*{nroItens}" required="required" readonly="readonly">
+			
+			<label for="valorTotalItens">Valor Total da Compra R$:</label>
+			<input type="text" th:field="*{valorTotalItens}" required="required" readonly="readonly">
+		</div>
+		<br><br>
 		<div>
 			<button type="submit" class="btn-cadastrar">Cadastrar</button>
 			<button type="reset" class="btn-reset">Limpar</button>
 		</div>
-		
-		
 		</form>
 	</fieldset>
-	
-	
-	
 </body>
 </html>
