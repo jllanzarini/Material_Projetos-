@@ -75,6 +75,10 @@
             <artifactId>jsf-impl</artifactId>
             <version>2.2.20</version>
         </dependency>
+        <dependency>
+ 			<groupId>org.thymeleaf</groupId>
+  			<artifactId>thymeleaf</artifactId>
+		</dependency>
 	</dependencies>
 	
 	

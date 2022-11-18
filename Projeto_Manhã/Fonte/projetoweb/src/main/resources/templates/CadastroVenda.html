@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastrar Venda</title>
+<script src="https://kit.fontawesome.com/a68915eedd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<a href="CadastroPessoa.html"><button><i class="fa-solid fa-user-plus fa-2x"></i> Cadastro de Pessoas</button></a>
+	<a href="ListaPessoa.html"><button><i class="fa-regular fa-address-book fa-2x"></i> Lista de Pessoas</button></a>
+	<a href="CadastroProduto.html"><button><i class="fa-solid fa-box-archive fa-2x"></i> Cadastro de Produtos</button></a>
+	<a href="ListaProduto.html" ><button><i class="fa-solid fa-boxes-stacked fa-2x"></i> Lista de Produtos</button></a>
+	<a href="CadastroVenda.html"><button><i class="fa-solid fa-basket-shopping fa-2x"></i> Cadastro de Vendas</button></a>
+	<a href="ListaVendas.html" ><button><i class="fa-solid fa-store fa-2x"></i> Lista de Vendas</button></a>
+	<fieldset>
+		<legend>Venda:</legend>
+		<form th:action="@{/api/v1/cadastroVenda}" th:object="${cadastroProduto}" method="post">
+			<div>
+				<label for="idPessoa">Selecione o Cliente:</label>
+				<br>
+				<input type="text" th:field="*{idPessoa}" required="required">
+				<br>
+			</div>	
+			<br>
+			<div>
+				<label for="idProduto">Selecione o Produto:</label>
+				<br>
+				<input type="text" th:field="*{idProduto}" required="required">
+				<button type="submit">Adicionar</button>
+			<br><br>
+			<table cellspacing="10" border="1">
+				  <tr>
+				    <th>Código</th>
+				    <th>Descrição</th>
+				    <th>Quantidade</th>
+				    <th>Valor Unitário</th>
+				    <th>Valor Total</th>
+				  </tr>
+				  <tr>
+				    <td>Row 1: Col 1</td>
+				    <td>Row 1: Col 2</td>
+					<td>Row 1: Col 3</td>
+				    <td>Row 1: Col 4</td>
+				    <td>Row 1: Col 5</td>
+				  </tr>
+			</table>
+		</div>	
+		<br>
+		<div>
+			<label for="nroItens">Numero Total de Itens:</label>
+			<input type="text" th:field="*{nroItens}" required="required" readonly="readonly">
+			
+			<label for="valorTotalItens">Valor Total da Compra R$:</label>
+			<input type="text" th:field="*{valorTotalItens}" required="required" readonly="readonly">
+		
+		</div>
+		<br>
+		<div>
+			<button type="submit">Cadastrar</button>
+			<button type="reset">Limpar</button>
+		</div>
+		</form>
+	</fieldset>
+</body>
+</html>

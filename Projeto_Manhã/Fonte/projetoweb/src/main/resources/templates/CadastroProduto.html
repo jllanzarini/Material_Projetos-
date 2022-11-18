@@ -10,13 +10,11 @@
 	<a href="ListaPessoa.html"><button><i class="fa-regular fa-address-book fa-2x"></i> Lista de Pessoas</button></a>
 	<a href="CadastroProduto.html"><button><i class="fa-solid fa-box-archive fa-2x"></i> Cadastro de Produtos</button></a>
 	<a href="ListaProduto.html" ><button><i class="fa-solid fa-boxes-stacked fa-2x"></i> Lista de Produtos</button></a>
-	<a href="CadastroProduto.html"><button><i class="fa-solid fa-basket-shopping fa-2x"></i> Cadastro de Vendas</button></a>
-	<a href="ListaProduto.html" ><button><i class="fa-solid fa-store fa-2x"></i> Lista de Vendas</button></a>
-	
-	
+	<a href="CadastroVenda.html"><button><i class="fa-solid fa-basket-shopping fa-2x"></i> Cadastro de Vendas</button></a>
+	<a href="ListaVendas.html" ><button><i class="fa-solid fa-store fa-2x"></i> Lista de Vendas</button></a>
 	<fieldset>
 		<legend>Cadastro de Produtos</legend>
-		<form th:action="@{/cadastroProduto}" th:object="${cadastroProduto}" method="post">
+		<form th:action="@{/api/v1/cadastroProduto}" th:object="${cadastroProduto}" method="post">
 		<div>
 			<label for="descricao">Descrição:</label>
 			<br>
@@ -50,7 +48,7 @@
 			<div>
 			<label for="fabricante">Fabricante/Fornecedor:</label>
 			<br>
-			<input type="password" th:field="*{fabricante}" required="required">
+			<input type="text" th:field="*{fabricante}" required="required">
 			<br>
 		</div>
 		<br>
@@ -58,8 +56,6 @@
 			<button type="submit">Cadastrar</button>
 			<button type="reset">Limpar</button>
 		</div>
-		
-		
 		</form>
 	</fieldset>
 </body>
