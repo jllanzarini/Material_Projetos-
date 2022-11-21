@@ -1,0 +1,70 @@
+<!DOCTYPE>
+<html html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Produtos</title>
+<script src="https://kit.fontawesome.com/a68915eedd.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../static/style.css"> 
+</head>
+<body>
+	
+	<a href="CadastroPessoa.html"><button class="btn-menu"><i class="fa-solid fa-user-plus fa-2x"></i> Cadastro de Pessoas</button></a>
+	<a href="ListaPessoa.html"><button class="btn-menu"><i class="fa-regular fa-address-book fa-2x"></i> Lista de Pessoas</button></a>
+	<a href="CadastroProduto.html"><button class="btn-menu"><i class="fa-solid fa-box-archive fa-2x"></i> Cadastro de Produtos</button></a>
+	<a href="ListaProduto.html" ><button class="btn-menu"><i class="fa-solid fa-boxes-stacked fa-2x"></i> Lista de Produtos</button></a>
+	<a href="CadastroVendas.html"><button class="btn-menu"><i class="fa-solid fa-basket-shopping fa-2x"></i> Cadastro de Vendas</button></a>
+	<a href="ListaVendas.html" ><button class="btn-menu"><i class="fa-solid fa-store fa-2x"></i> Lista de Vendas</button></a>
+	
+	<fieldset>
+		<legend>Cadastro de Produtos</legend>
+		<form action="salvarproduto" method="post">
+		<div>
+			<label for="desricao">Descrição:</label>
+			<br>
+			<input type="text" name="descricao" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="qtd">Quantidade:</label>
+			<br>
+			<input type="text" name="qtd" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="vlrCompra">Valor de Compra:</label>
+			<br>
+			<input type="text" name="vlrCompra" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="vlrVenda">Valor de Venda::</label>
+			<br>
+			<input type="text" name="vlrVenda" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="dtValidade">Data Validade:</label>
+			<br>
+			<input type="date" name="dtValidade" required="required">
+			<br>
+		</div>	
+			<div>
+			<label for="fabricante">Fabricante/Fornecedor:</label>
+			<br>
+			<input type="text" name="fabricante" required="required">
+			<br>
+		</div>
+		<br>
+		<div>
+			<button type="submit" class="btn-cadastrar">Cadastrar</button>
+			<button type="reset" class="btn-reset">Limpar</button>
+		</div>
+		
+		
+		</form>
+	</fieldset>
+	
+	
+	
+</body>
+</html>
