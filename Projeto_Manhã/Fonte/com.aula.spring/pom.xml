@@ -73,15 +73,12 @@
       <version>1.0.1</version>
       <scope>test</scope>
     </dependency>
-    
-            <dependency>
+     <dependency>
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>42.2.26.jre7</version>
             </dependency>
-        
-          
-        
+    
   </dependencies>
 
   <build>
