@@ -21,7 +21,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name ="Pessoas", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
-
 public class Pessoa {
 	private int id;
     @NotNull
