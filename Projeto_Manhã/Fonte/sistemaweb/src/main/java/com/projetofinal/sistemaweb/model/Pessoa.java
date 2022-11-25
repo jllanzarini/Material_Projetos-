@@ -1,26 +1,27 @@
 package com.projetofinal.sistemaweb.model;
 
+
+
+
+
 import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.data.annotation.Id;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
-
 @Entity
-@Table(name ="Pessoas", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
+@Table(name ="Pessoas")
 public class Pessoa {
 	private int id;
     @NotNull
@@ -93,7 +94,7 @@ public class Pessoa {
 		this.dataNascimento = dataNascimento;
 	}
 	
-	@Column(name = "SENHA", nullable = false, unique = true)
+    @Column(name = "SENHA", nullable = false)
     public String getSenha() {
 		return senha;
 	}
@@ -102,7 +103,7 @@ public class Pessoa {
 		this.senha = senha;
 	}
 	
-	@Column(name = "TELEFONE", nullable = false, unique = true)
+    @Column(name = "TELEFONE", nullable = false)
 	public String getTelefone() {
 		return telefone;
 	}
