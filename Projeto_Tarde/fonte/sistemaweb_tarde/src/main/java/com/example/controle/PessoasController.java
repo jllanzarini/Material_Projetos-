@@ -2,9 +2,15 @@ package com.example.controle;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.web.modelo.Pessoas;
 import com.example.web.repositorio.PessoaRepositorio;
+
+import jakarta.validation.Valid;
 
 
 
@@ -24,5 +30,20 @@ public class PessoasController {
 	public String pessoas(Model model) {
 		model.addAttribute("listaPessoas",pessoarepositorio.findAll());
 		return "cadastros/pessoa";
+	}
+	
+	//Cadastrar Pessoa
+	@GetMapping("/pessoas/nova")
+	public String novaPessoa(Model model) {
+		
+		model.addAttribute("pessoas", new Pessoas());
+		return "cadastros/novapessoa";
+
+	}
+	
+	@PostMapping("pessoas/salvar")
+	public String salvarPessoa(@Valid @ModelAttribute("pessoas") Pessoas pessoas, BindingResult bindingResult, Model model) {
+			return "pessoas/novapessoa";
+		
 	}
 }
