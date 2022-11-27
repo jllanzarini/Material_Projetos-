@@ -8,13 +8,13 @@
 		<version>3.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.projetofinal</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>sistemaweb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sistemaweb</name>
-	<description>Spring Maven Projeto Web</description>
+	<description>Project for Spring Boot</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>19</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -23,7 +23,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -50,21 +50,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
-		<dependency>
-	      <groupId>org.hibernate</groupId>
-	      <artifactId>hibernate-agroal</artifactId>
-	      <version>5.4.10.Final</version>
-	      <type>pom</type>
-    	</dependency>
-		<dependency>
-		    <groupId>javax.validation</groupId>
-		    <artifactId>validation-api</artifactId>
-		    <version>1.0.0.GA</version>
-	  </dependency>
 	</dependencies>
 
 	<build>

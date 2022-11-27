@@ -1,29 +1,30 @@
-package com.projetofinal.sistemaweb.model;
-
-
-
-
+package com.example.projetoweb_m.modelo;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
-import org.springframework.data.annotation.Id;
+
+
+
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 @Entity
-@Table(name ="Pessoas")
-public class Pessoa {
-	private int id;
+@Table(name = "Pessoas", uniqueConstraints = {@UniqueConstraint(columnNames = {"CPF","email"})})
+public class Pessoas {
+	private long id;
     @NotNull
     @Pattern(regexp="\\d{11}", message = "Apenas informe 11 digitos.")
     private String cpf;
@@ -41,9 +42,9 @@ public class Pessoa {
     @NotNull
     private String telefone;
  
-    public Pessoa() {}
+    public Pessoas() {}
  
-    public Pessoa(String cpf, String nome, String email, LocalDate dataNascimento, String senha, String telefone ) {
+    public Pessoas(String cpf, String nome, String email, LocalDate dataNascimento, String senha, String telefone ) {
          this.cpf = cpf;
          this.nome = nome;
          this.email = email;
@@ -54,10 +55,10 @@ public class Pessoa {
  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        public int getId() {
+        public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
     
@@ -94,7 +95,7 @@ public class Pessoa {
 		this.dataNascimento = dataNascimento;
 	}
 	
-    @Column(name = "SENHA", nullable = false)
+	 @Column(name ="SENHA",nullable = false)
     public String getSenha() {
 		return senha;
 	}
@@ -103,7 +104,7 @@ public class Pessoa {
 		this.senha = senha;
 	}
 	
-    @Column(name = "TELEFONE", nullable = false)
+	@Column(name = "TELEFONE",nullable = false)
 	public String getTelefone() {
 		return telefone;
 	}

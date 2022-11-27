@@ -1,4 +1,4 @@
-package com.projetofinal.sistemaweb;
+package com.example.projetoweb_m;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
