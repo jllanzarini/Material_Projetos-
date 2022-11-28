@@ -10,9 +10,9 @@
 	<header th:insert="fragments/geral.html :: header"> </header>
 
 	<div class="container my-2">
-		<h2>Editar Pessoa</h2>
+		<h2>Dados Pessoais</h2>
 		<form action="#" th:action="@{/pessoas/salvar}" th:object="${pessoa}" method="POST">
-			<input type="hidden" id="id" th:field="*{id}">
+			
 			
 			<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="text-danger"></span>
 			<input type="text" th:field="*{nome}" placeholder="Nome" class="form-control mb-4 col-4">
