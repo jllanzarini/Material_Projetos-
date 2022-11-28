@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 import com.aula.spring.modelo.Pessoas;
 import com.aula.spring.repositorio.PessoasRepositorio;
 
@@ -21,12 +22,11 @@ private PessoasRepositorio pessoasrepositorio;
 		this.pessoasrepositorio =pessoasrepositorio;
 	}
 	
-	
 	//Listagem das Pessoas Cadastradas
 	@GetMapping("/pessoas")
 	public String pessoas(Model model) {
 		model.addAttribute("listaPessoas",pessoasrepositorio.findAll());
-		return "cadastros/pessoa";
+		return "cadastros/lista_pessoa";
 	}
 	
 	//Cadastrar Pessoa
@@ -34,7 +34,7 @@ private PessoasRepositorio pessoasrepositorio;
 	public String novaPessoa(Model model) {
 		
 		model.addAttribute("pessoas", new Pessoas());
-		return "cadastros/novapessoa";
+		return "cadastros/form_pessoa";
 
 	}
 	

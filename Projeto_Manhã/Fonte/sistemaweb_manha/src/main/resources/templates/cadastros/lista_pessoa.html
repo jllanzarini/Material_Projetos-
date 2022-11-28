@@ -23,7 +23,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="pessoa : ${listaPessoas.content}">
+				<tr th:each="pessoas : ${listaPessoas.content}">
 					<td th:text="${pessoas.id}"></td>
 					<td th:text="${pessoas.nome}"></td>
 					<td th:text="${pessoas.cpf}"></td>
@@ -32,8 +32,8 @@
 					<td th:text="${pessoas.telefone}"></td>
 					<td th:text="${pessoas.senha}"></td>
 					<td>
-						<a th:href="@{/pessoas/{id}(id=${pessoa.id})}" class="btn btn-primary">Alterar</a>
-						<a th:href="@{/pessoas/excluir/{id}(id=${pessoa.id})}" class="btn btn-danger">Excluir</a>			
+						<a th:href="@{/pessoas/{id}(id=${pessoas.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/pessoas/excluir/{id}(id=${pessoas.id})}" class="btn btn-danger">Excluir</a>			
 					</td>			
 				</tr>
 			</tbody>
