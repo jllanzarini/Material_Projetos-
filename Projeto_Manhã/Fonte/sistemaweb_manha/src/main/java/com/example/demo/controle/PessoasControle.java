@@ -21,11 +21,6 @@ private PessoasRepositorio pessoasrepositorio;
 		this.pessoasrepositorio =pessoasrepositorio;
 	}
 	
-	@GetMapping("/")
-	public String Inicial() {
-		return "index";
-	}
-
 	//Listagem das Pessoas Cadastradas
 	@GetMapping("/pessoas")
 	public String pessoas(Model model) {
