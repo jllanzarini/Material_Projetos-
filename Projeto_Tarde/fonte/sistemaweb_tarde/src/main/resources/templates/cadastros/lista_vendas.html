@@ -23,32 +23,28 @@
 			 Lista de Vendas</button></a>
 	</header>
 <div class="container my-2">
-		<a th:href="@{/pessoas/nova}" class="btn btn-primary btn-sm mb-3">Incluir Pessoa</a>
-		<h1>Cadastro de Pessoas</h1>
+		<a th:href="@{/vendas/nova}" class="btn btn-primary btn-sm mb-3">Incluir Produto</a>
+		<h1>Listagem de Vendas</h1>
 		<table border="1" class="table table-striped table-responsive-md">
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Nome</th>
-					<th>CPF</th>
-					<th>Email</th>
-					<th>Data de Nascimento</th>
-					<th>Telefone</th>
-					<th>Senha</th>
+					<th>Código Cliente</th>
+					<th>Numero de itens</th>
+					<th>Valor Total</th>
+				
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="pessoas : ${listaPessoas}">
-					<td th:text="${pessoas.id}"></td>
-					<td th:text="${pessoas.nome}"></td>
-					<td th:text="${pessoas.cpf}"></td>
-					<td th:text="${pessoas.email}"></td>
-					<td th:text="${pessoas.dataNascimento}"></td>
-					<td th:text="${pessoas.telefone}"></td>
-					<td th:text="${pessoas.senha}"></td>
+				<tr th:each="vendas : ${listaVendas}">
+					<td th:text="${vendas.idvenda}"></td>
+					<td th:text="${vendas.idPessoa}"></td>
+					<td th:text="${vendas.nroItens}"></td>
+					<td th:text="${vendas.vlrTotalVenda}"></td>
 					<td>
-						<a th:href="@{/pessoas/{id}(id=${pessoas.id})}" class="btn btn-primary">Alterar</a>
-						<a th:href="@{/pessoas/excluir/{id}(id=${pessoas.id})}" class="btn btn-danger">Excluir</a>			
+						<a th:href="@{/vendas/{id}(id=${vendas.idvenda})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/vendas/excluir/{id}(id=${vendas.idvenda})}" class="btn btn-danger">Excluir</a>
+						<a th:href="@{/vendas/excluir/{id}(id=${vendas.idvenda})}" class="btn btn-success">Visualizar</a>			
 					</td>			
 				</tr>
 			</tbody>
