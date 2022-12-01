@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.modelo.Pessoas;
 import com.example.demo.repositorio.PessoasRepositorio;
@@ -28,19 +29,19 @@ private PessoasRepositorio pessoasrepositorio;
 		return "cadastros/lista_pessoa";
 	}
 	
-	//Cadastrar Pessoa
-		@GetMapping("/pessoas/nova")
-		public String novaPessoa(Model model) {
-			
-			model.addAttribute("pessoas", new Pessoas());
-			return "cadastros/form_pessoa";
-
-		}
-		
-		@PostMapping("/pessoas/salvar")
-		public String salvarPessoa(@Valid @ModelAttribute("pessoas") Pessoas pessoas, BindingResult bindingResult, Model model) {
-				return "pessoas/novapessoa";
-			
-		}
+	@GetMapping("/pessoas/nova")
+	public String cadastrar(@ModelAttribute("pessoas")Pessoas pessoas) {
+		return "/cadastros/form_pessoa";
+	}
+	
+	@PostMapping("/pessoas/salvar")
+	public String salvar(@ModelAttribute("pessoas")Pessoas pessoas,RedirectAttributes attr) {
+		pessoasrepositorio.save(pessoas);
+		attr.addFlashAttribute("success", "Pessoa cadastrada com sucesso!");
+		return "cadastros/lista_pessoa";
+	}
+	
+	
+	
 	
 }
