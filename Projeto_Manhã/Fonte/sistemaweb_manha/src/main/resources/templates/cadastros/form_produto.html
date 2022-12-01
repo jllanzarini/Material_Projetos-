@@ -27,21 +27,22 @@
 		<form action="#" th:action="@{/produtos/salvar}" th:object="${produtos}" method="POST">
 			
 			
-			<span th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}" class="text-danger"></span>
-			<input type="text" th:field="*{descricao}" placeholder="Descrição" class="form-control mb-4 col-4">
-      		<input type="text" th:field="*{qtd}" placeholder="Quantidade" class="form-control mb-4 col-4">
-      		
-      		<span th:if="${#fields.hasErrors('vlrCompra')}" th:errors="*{vlrCompra}" class="text-danger"></span>
-      		<input type="text" th:field="*{vlrCompra}" placeholder="Valor de Compra" class="form-control mb-4 col-4">
-      		
-      		<span th:if="${#fields.hasErrors('vlrVenda')}" th:errors="*{vlrVenda}" class="text-danger"></span>
-			<input type="text" th:field="*{vlrVenda}" placeholder="Valor de Venda" class="form-control mb-4 col-4">
-      		<input type="text" th:field="*{dtValidade}" placeholder="Data de Validade" class="form-control mb-4 col-4">
-      		<input type="text" th:field="*{fabricante}" placeholder="Fabricante" class="form-control mb-4 col-4">
+			<label>Descrição:</label>
+			<input type="text" th:field="*{descricao}" placeholder="" class="form-control mb-4 col-4">
+			<label>Quantidade:</label>
+      		<input type="text" th:field="*{qtd}" placeholder="" class="form-control mb-4 col-4">
+      		<label>Valor de Compra:</label>
+      	    <input type="text" th:field="*{vlrCompra}" placeholder="" class="form-control mb-4 col-4">
+      	    <label>Valor de Venda:</label>
+      		<input type="text" th:field="*{vlrVenda}" placeholder="" class="form-control mb-4 col-4">
+      		<label>Data de Validade</label>
+      		<input type="date" th:field="*{dtValidade}" placeholder="" class="form-control mb-4 col-4">
+      		<label>Distribuidor/Fabricante:</label>
+      		<input type="text" th:field="*{fabricante}" placeholder="" class="form-control mb-4 col-4">
       		
 			
-			
-			<button type="submit" class="btn btn-info col-2">Salvar</button>
+			<button type="reset" class="btn btn-danger col-2">Limpar</button>
+			<button type="submit" class="btn btn-success col-2">Salvar</button>
 		</form>
 		<hr>
 		<a th:href="@{/produtos}">Retornar para a lista de Produtos</a>

@@ -1,5 +1,9 @@
 package com.example.demo.modelo;
 
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
+
 @Entity
 @Table(name ="Produtos")
 public class Produtos {
@@ -15,14 +20,14 @@ public class Produtos {
 		@NotNull
 		private String descricao;
 		@NotNull	
-		@NotNull
 		private int qtd;
 		@NotNull
-		private double  vlrCompra;
+		private Float  vlrCompra;
 		@NotNull
-		private double  vlrVenda;
+		private Float  vlrVenda;
 		@NotNull
-		private String dtValidade;
+	    @JsonFormat(pattern="dd/MM/yyyy")
+		private LocalDate dtValidade;
 		@NotNull
 		private String fabricante;
 		
@@ -30,8 +35,8 @@ public class Produtos {
 		
 		}
 		
-		public Produtos(String descricao, int  qtd, Double vlrCompra, Double vlrVenda,
-				String dtValidade, String fabricante){
+		public Produtos(String descricao, int  qtd, Float  vlrCompra, Float vlrVenda,
+				LocalDate dtValidade, String fabricante){
 			this.descricao =descricao;
 			this.qtd = qtd;
 			this.vlrCompra = vlrCompra;
@@ -69,29 +74,29 @@ public class Produtos {
 		}
 		
 		@Column(name = "vlrCompra", nullable = false)
-		public double getVlrCompra() {
+		public Float getVlrCompra() {
 			return vlrCompra;
 		}
 
-		public void setVlrCompra(double vlrCompra) {
+		public void setVlrCompra(Float vlrCompra) {
 			this.vlrCompra = vlrCompra;
 		}
 		
 		@Column(name = "vlrVenda", nullable = false)
-		public double getVlrVenda() {
+		public Float getVlrVenda() {
 			return vlrVenda;
 		}
 
-		public void setVlrVenda(double vlrVenda) {
+		public void setVlrVenda(Float vlrVenda) {
 			this.vlrVenda = vlrVenda;
 		}
 		
 		@Column(name = "dtValidade", nullable = false)
-		public String getDtValidade() {
+		public LocalDate getDtValidade() {
 			return dtValidade;
 		}
 
-		public void setDtValidade(String dtValidade) {
+		public void setDtValidade(LocalDate dtValidade) {
 			this.dtValidade = dtValidade;
 		}
 		

@@ -1,10 +1,14 @@
 package com.example.demo.controle;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -38,7 +42,16 @@ private PessoasRepositorio pessoasrepositorio;
 	public String salvar(@ModelAttribute("pessoas")Pessoas pessoas,RedirectAttributes attr) {
 		pessoasrepositorio.save(pessoas);
 		attr.addFlashAttribute("success", "Pessoa cadastrada com sucesso!");
-		return "cadastros/lista_pessoa";
+		return "redirect:/pessoas";
+	}
+	@GetMapping("/pessoas/excluir/{id}")
+	public String excluirPessoa(@PathVariable("id") long id) {
+		Optional<Pessoas>pessoaOpt = pessoasrepositorio.findById(id);
+		if (pessoaOpt.isEmpty()) {
+			throw new IllegalArgumentException("Pessoa invalida!");
+		}
+		pessoasrepositorio.delete(pessoaOpt.get());
+		return "redirect:/pessoas";
 	}
 	
 	
