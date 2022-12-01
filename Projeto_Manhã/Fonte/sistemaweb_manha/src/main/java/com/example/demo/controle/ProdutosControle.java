@@ -47,7 +47,7 @@ private ProdutosRepositorio produtosrepositorio;
 	public String excluirProduto(@PathVariable("id") long id) {
 		Optional<Produtos> produtoOpt = produtosrepositorio.findById(id);
 		if (produtoOpt.isEmpty()) {
-			throw new IllegalArgumentException("Produto inválida.");
+			throw new IllegalArgumentException("Produto inválido.");
 		}
 		
 		produtosrepositorio.delete(produtoOpt.get());
