@@ -35,14 +35,15 @@ private PessoasRepositorio pessoasrepositorio;
 	}
 	
 	@GetMapping("/pessoas/nova")
-	public String cadastrar(@ModelAttribute("pessoas")Pessoas pessoas) {
+	public String cadastrar(Model model) {
+		model.addAttribute("pessoas", new Pessoas(""));
 		return "/cadastros/form_pessoa";
 	}
 	
 	@PostMapping("/pessoas/salvar")
-	public String salvar(@ModelAttribute("pessoas")Pessoas pessoas,RedirectAttributes attr) {
+	public String salvarPessoa(@Valid @ModelAttribute("pessoas") Pessoas pessoas, BindingResult bindingResult, Model model) {
+		
 		pessoasrepositorio.save(pessoas);
-		attr.addFlashAttribute("success", "Pessoa cadastrada com sucesso!");
 		return "redirect:/pessoas";
 	}
 	@GetMapping("/pessoas/excluir/{id}")

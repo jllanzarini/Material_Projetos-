@@ -26,7 +26,7 @@
 	<div class="container my-2">
 		<h2>Dados Pessoais</h2>
 		<form action="#" th:action="@{/pessoas/salvar}" th:object="${pessoas}" method="POST">
-			
+			<input type="hidden" id="id" th:field="*{id}">
 			<label>Nome:</label>
 			<input type="text" th:field="*{nome}" placeholder="" class="form-control mb-4 col-4">
       		<label>Data de Nascimento:</label>

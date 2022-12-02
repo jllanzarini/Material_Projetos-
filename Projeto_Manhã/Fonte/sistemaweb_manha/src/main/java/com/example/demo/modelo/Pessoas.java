@@ -17,7 +17,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "Pessoas", uniqueConstraints = {@UniqueConstraint(columnNames = {"CPF","email"})})
+@Table(name = "Pessoas")
 public class Pessoas {
 	private long id;
     @NotNull
@@ -37,15 +37,12 @@ public class Pessoas {
     @NotNull
     private String telefone;
  
-    public Pessoas() {}
- 
-    public Pessoas(String cpf, String nome, String email, LocalDate dataNascimento, String senha, String telefone ) {
-         this.cpf = cpf;
+    @Deprecated
+	protected Pessoas() {}
+    
+    public Pessoas(String nome) {
          this.nome = nome;
-         this.email = email;
-         this.dataNascimento = dataNascimento;
-         this.senha = senha;
-         this.telefone = telefone;
+        
     }
     
     @Id
