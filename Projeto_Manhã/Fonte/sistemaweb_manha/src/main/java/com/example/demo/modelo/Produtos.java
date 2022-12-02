@@ -35,14 +35,8 @@ public class Produtos {
 		
 		}
 		
-		public Produtos(String descricao, int  qtd, Float  vlrCompra, Float vlrVenda,
-				LocalDate dtValidade, String fabricante){
+		public Produtos(String descricao){
 			this.descricao =descricao;
-			this.qtd = qtd;
-			this.vlrCompra = vlrCompra;
-			this.vlrVenda = vlrVenda;
-			this.dtValidade = dtValidade;
-			this.fabricante = fabricante;
 		}
 		
 		
