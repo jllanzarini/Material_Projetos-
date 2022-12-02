@@ -22,52 +22,11 @@
 			<a th:href="@{/vendas}" ><button class="btn-menu"><i class="fa-solid fa-store fa-2x"></i>
 			 Lista de Vendas</button></a>
 	</header>
-<div class="container my-2">
-	<form th:action="@{/vendas/salvar}" th:object="${Vendas}" method="post">
-		<div>
-			<label for="idPessoa">Selecione o Cliente:</label>
-			<br>
-			<input type="text" th:field="*{idPessoa}" required="required">
-			<br>
-		</div>
-		<div>
-			<label for="idProduto">Selecione o Produto:</label>
-			<br>
-			<input type="text" th:field="*{idProduto}" required="required">
-			<button type="button">Adicionar</button>
-			<br>
-	
-		<br><br>
-			<table cellspacing="10" border="1">
-				<tr>
-					    <th>Código</th>
-					    <th>Descrição</th>
-					    <th>Quantidade</th>
-					    <th>Valor Unitário</th>
-					    <th>Valor Total</th>
-					  </tr>
-					  <tr>
-					    <td>Row 1: Col 1</td>
-					    <td>Row 1: Col 2</td>
-						<td>Row 1: Col 3</td>
-					    <td>Row 1: Col 4</td>
-					    <td>Row 1: Col 5</td>
-					  </tr>
-			</table>
-		</div>	
-		<br><br>
-		<div>
-			<label for="nroItens">Numero Total de Itens:</label>
-			<input type="text" th:field="*{nroItens}" required="required" readonly="readonly">
-			
-			<label for="valorTotalItens">Valor Total da Compra R$:</label>
-			<input type="text" th:field="*{valorTotalItens}" required="required" readonly="readonly">
-		</div>
-		<br><br>
-		<div>
-			<button type="submit" class="btn-cadastrar">Cadastrar</button>
-			<button type="reset" class="btn-reset">Limpar</button>
-		</div>
+	<div class="container my-2">
+		<h2>Dados da Venda</h2>
+		<form action="#" th:action="@{/vendas/nova}" th:object="${vendas}" method="POST">
+		
+		
 		</form>
 	</div>
 </body>

@@ -14,7 +14,7 @@ import jakarta.validation.constraints.NotNull;
 public class Vendas {
 	private Long idvenda;
 	@NotNull
-	private int idPessoa;
+	private Long idPessoa;
 	@NotNull
 	private int nroItens;
 	@NotNull
@@ -23,7 +23,7 @@ public class Vendas {
 	public Vendas() {
 		
 	}
-	public Vendas( int idPessoa, int nroItens, Float vlrTotalVenda) {
+	public Vendas( Long idPessoa, int nroItens, Float vlrTotalVenda) {
 		this.idPessoa = idPessoa;
 		this.nroItens = nroItens;
 		this.vlrTotalVenda = vlrTotalVenda;
@@ -40,10 +40,10 @@ public class Vendas {
 	}
 	
 	@Column(name = "idPessoa", nullable = false)
-	public int getIdPessoa() {
+	public Long getIdPessoa() {
 		return idPessoa;
 	}
-	public void setIdPessoa(int idPessoa) {
+	public void setIdPessoa(Long idPessoa) {
 		this.idPessoa = idPessoa;
 	}
 	
