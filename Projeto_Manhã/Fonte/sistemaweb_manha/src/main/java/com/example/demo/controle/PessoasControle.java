@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.modelo.Pessoas;
@@ -54,7 +55,20 @@ private PessoasRepositorio pessoasrepositorio;
 		return "redirect:/pessoas";
 	}
 	
+	@GetMapping("/pessoas/alterar/{id}")
+	public String alterarPessoa(@PathVariable("id") long id, Model model) {
+		Optional<Pessoas> pessoaOpt = pessoasrepositorio.findById(id);
+		if (!pessoaOpt.isPresent()) {
+			throw new IllegalArgumentException("Pessoa inválida.");
+		}
+		
+		model.addAttribute("pessoas", pessoaOpt.get());
+		
+		return "/cadastros/form_pessoa";
+	}
 	
+	
+			    
 	
 	
 }

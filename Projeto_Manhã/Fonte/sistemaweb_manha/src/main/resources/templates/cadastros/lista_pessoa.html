@@ -47,7 +47,7 @@
 					<td th:text="${pessoas.telefone}"></td>
 					<td th:text="${pessoas.senha}"></td>
 					<td>
-						<a th:href="@{/pessoas/{id}(id=${pessoas.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/pessoas/alterar/{id}(id=${pessoas.id})}" class="btn btn-primary">Alterar</a>
 						<a th:href="@{/pessoas/excluir/{id}(id=${pessoas.id})}" class="btn btn-danger">Excluir</a>			
 					</td>			
 				</tr>
