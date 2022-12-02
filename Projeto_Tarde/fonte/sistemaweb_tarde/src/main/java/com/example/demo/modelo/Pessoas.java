@@ -37,16 +37,14 @@ public class Pessoas {
     @NotNull
     private String telefone;
  
-    public Pessoas() {}
+    
+    @Deprecated
+	protected Pessoas() {}
  
-    public Pessoas(String cpf, String nome, String email, LocalDate dataNascimento, String senha, String telefone ) {
-         this.cpf = cpf;
-         this.nome = nome;
-         this.email = email;
-         this.dataNascimento = dataNascimento;
-         this.senha = senha;
-         this.telefone = telefone;
-    }
+    public Pessoas(String nome) {
+        this.nome = nome;
+       
+   }
  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
