@@ -26,18 +26,13 @@ public class Produtos {
 		@NotNull
 		private String fabricante;
 		
-		public Produtos(){
+		@Deprecated
+		protected Produtos(){
 		
 		}
 		
-		public Produtos(String descricao, int  qtd, Double vlrCompra, Double vlrVenda,
-				String dtValidade, String fabricante){
+		public Produtos(String descricao){
 			this.descricao =descricao;
-			this.qtd = qtd;
-			this.vlrCompra = vlrCompra;
-			this.vlrVenda = vlrVenda;
-			this.dtValidade = dtValidade;
-			this.fabricante = fabricante;
 		}
 		
 		

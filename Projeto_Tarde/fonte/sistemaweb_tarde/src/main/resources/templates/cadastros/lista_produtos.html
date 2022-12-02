@@ -47,7 +47,7 @@
 					<td th:text="${produtos.dtValidade}"></td>
 					<td th:text="${produtos.fabricante}"></td>
 					<td>
-						<a th:href="@{/produtos/excluir/{id}(id=${produtos.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/produtos/alterar/{id}(id=${produtos.id})}" class="btn btn-primary">Alterar</a>
 						<a th:href="@{/produtos/excluir/{id}(id=${produtos.id})}" class="btn btn-danger">Excluir</a>			
 					</td>			
 				</tr>
