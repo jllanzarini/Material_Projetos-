@@ -9,4 +9,9 @@ public class AppControle {
 	public String Inicial() {
 		return "index";
 	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 }
