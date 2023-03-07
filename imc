@@ -1,0 +1,33 @@
+#include <stdio.h> /* Inclusão de Biblioteca para entrada e saida de dados*/
+
+/* CALCULA IMC*/
+int main() /* inicio da função principal main */
+{
+    /* Variaveis*/
+    float peso, altura, imc;
+    
+    /* Imprimir na tela a solicitãção ao usuário informar o peso*/
+    printf("Digite seu Peso: ");
+    
+    /*Capturar informação digitada pelo usuário*/
+    scanf("%f" ,&peso);
+    
+    printf("Digite sua altura em Metros: ");
+    scanf("%f" ,&altura);
+    
+    /* Isso é so enfeite*/
+    printf("===> ");
+    
+    /* "%0.2f" somente duas casas após o ponto */
+    printf("Peso: %0.2f", peso);
+    
+    printf(" Altura : %0.2f", altura);
+    
+    /* Isso é so enfeite*/
+    printf(" <===> ");
+    imc = peso/(altura*altura);
+    
+    printf("Seu IMC é: %0.2f", imc);
+    /* Isso é so enfeite*/
+    printf(" <===");
+}
