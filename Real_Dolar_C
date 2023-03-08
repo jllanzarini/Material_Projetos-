@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*ESTE ALGORITMO CONVERTE REAIS EM DOLARES*/
+int main()
+{
+   float vlrReal, vlrDolar, contacao;
+   
+   printf("Digite o valor em Reais(R$) a ser Convertido: ");
+   scanf("%f", &vlrReal);
+   printf("Digite o valor da Cotação do Dolar(US$): ");
+   scanf("%f", &contacao);
+   
+   vlrDolar = vlrReal/contacao;
+   
+   printf("Valor em Dolares(US$): %.2f\n", vlrDolar);
+   return 0;
+   
+}
