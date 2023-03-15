@@ -1,0 +1,21 @@
+/*O custo ao consumidor de um carro novo é a soma do custo de fábrica com a percentagem do distribuidor e dos impostos (aplicados, primeiro os impostos sobre o custo de fábrica, e depois a percentagem do distribuidor sobre o resultado). Supondo que a percentagem do distribuidor seja de 28% e os impostos 45%*/
+
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+    float custo_fabrica, perc_revenda, imposto, preco_final;
+    
+    printf("Informe o custo de Produção: ");
+    scanf("%f", &custo_fabrica);
+    
+    perc_revenda = (custo_fabrica * 28)/100;
+    imposto = (custo_fabrica * 45)/100;
+    
+    preco_final = (custo_fabrica + perc_revenda + imposto);
+    
+    printf("\n O Custo final do Automovel é:  %0.2f", preco_final);
+    printf("\n O imposto incidente é:  %0.2f", imposto);
+    printf("\n A Comissão da revenda é:  %0.2f", perc_revenda);
+    
+}
