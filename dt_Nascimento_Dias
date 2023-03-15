@@ -1,0 +1,27 @@
+/*Faça um algoritmo que leia a idade da pessoa em anos meses e dias e retorne em dias*/
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+    int anos, meses, dias, total_de_dias;
+    
+    printf("Digite o ano que nasceu: ");
+    scanf("%d", &anos);
+    
+    /*getchar() Função que retorna um valor, o caracter lido, mais precisamente o
+    codigo ASCII correspondente ao caracter*/
+    (void)getchar();
+    
+    printf("Digite o mes que nasceu: ");
+    scanf("%d", &meses);
+    (void) getchar();
+    
+    printf("Digite o dia que nasceu: ");
+    scanf("%d", &dias);
+    (void) getchar();
+    
+    anos=(2023-anos);
+    total_de_dias = (anos*365+meses*30+dias);
+    printf("O valor total de dias: %d\n", total_de_dias);
+   
+}
